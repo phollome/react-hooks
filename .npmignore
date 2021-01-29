@@ -1,0 +1,7 @@
+src
+tests
+rollup.*
+.*rc
+jest.config.json
+setupTests.js
+*.lock
