@@ -1,4 +1,4 @@
-name: publish
+name: build
 
 on:
   push:
@@ -16,7 +16,6 @@ jobs:
           node-version: "14.x"
           scope: "phollome"
           registry-url: https://registry.npmjs.org/
-
       - run: yarn install
       - run: yarn build
       - run: npm publish --access public
