@@ -9,7 +9,9 @@ function useDarkMode() {
 
   useEffect(() => {
     const darkModeEnabled =
-      window && window.localStorage && window.localStorage[localStorageItemKey];
+      window &&
+      window.localStorage &&
+      window.localStorage.getItem(localStorageItemKey);
     if (darkModeEnabled) {
       setIsDarkMode(true);
     } else {
