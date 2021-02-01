@@ -19,3 +19,14 @@ test("toggle dark mode", () => {
   expect(removeItemSpy).nthCalledWith(2, "darkModeEnabled");
   expect(result.current.isDarkMode).toBe(false);
 });
+
+test("use dark mode settings (browser)", () => {
+  Object.defineProperty(window, "matchMedia", {
+    writable: true,
+    value: jest.fn().mockImplementation((query) => ({
+      matches: query === "(prefers-color-scheme: dark)",
+    })),
+  });
+  const { result } = renderHook(() => useDarkMode());
+  expect(result.current.isDarkMode).toBe(true);
+});
