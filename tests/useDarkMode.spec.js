@@ -30,3 +30,11 @@ test("use dark mode settings (browser)", () => {
   const { result } = renderHook(() => useDarkMode());
   expect(result.current.isDarkMode).toBe(true);
 });
+
+test("use dark mode settings (local storage)", () => {
+  const getItemSpy = jest.spyOn(window.localStorage.__proto__, "getItem");
+  getItemSpy.mockImplementation((key) => key === "darkModeEnabled");
+  const { result } = renderHook(() => useDarkMode());
+  expect(result.current.isDarkMode).toBe(true);
+  getItemSpy.mockRestore();
+});
