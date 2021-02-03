@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
 
+/**
+ * Get status of or toggle dark mode
+ * @return {{isDarkMode: Boolean, toggleDarkMode: Function}}
+ */
 function useDarkMode() {
   const selector = "body";
   const className = "dark";
